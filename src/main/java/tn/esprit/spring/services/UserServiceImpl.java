@@ -19,28 +19,25 @@ public class UserServiceImpl implements IUserService {
 	UserRepository userRepository;
 
 	private static final Logger l = LogManager.getLogger(UserServiceImpl.class);
+	//public static void main(String[] args) { UserServiceImpl al = new UserServiceImpl(); al.retrieveAllUsers(); }
 
-
-
+	//@Override
+	//public List<User> retrieveAllUsers() { 
+	//	List<User> users = null; 
+//		try {
 	
-	
-	@Override
-	public List<User> retrieveAllUsers() { 
-		List<User> users = null; 
-		try {
-	
-			l.info("In retrieveAllUsers() : ");
-			users = (List<User>) userRepository.findAll();  
-			for (User user : users) {
-				l.debug("user +++ : " + user);
-			} 
-			l.info("Out of retrieveAllUsers() : ");
-		}catch (Exception e) {
-			l.error("Error in retrieveAllUsers() : " + e);
-		}
+			//l.info("In retrieveAllUsers() : ");
+			//users = (List<User>) userRepository.findAll();  
+			//for (User user : users) {
+				//l.debug("user +++ : " + user);
+			//} 
+			//l.info("Out of retrieveAllUsers() : ");
+		//}catch (Exception e) {
+			//l.error("Error in retrieveAllUsers() : " + e);
+		//}
 
-		return users;
-	}
+	//	return users;
+//}
 
 
 	@Override
@@ -53,19 +50,19 @@ public class UserServiceImpl implements IUserService {
 		return userRepository.save(u);
 	}
 
-	@Override
-	public void deleteUser(String id) {
-		userRepository.deleteById(Long.parseLong(id));
-	}
+	//@Override
+	//public void deleteUser(String id) {
+		//userRepository.deleteById(Long.parseLong(id));
+	//}
 
 	@Override
 	public User retrieveUser(String id) {
 		l.info("in  retrieveUser id = " + id);
-		//User u =  userRepository.findById(Long.parseLong(id)).orElse(null);
-		//int i = 1/0; 
 		User u =  userRepository.findById(Long.parseLong(id)).get(); 
 		l.info("user returned : " + u);
 		return u; 
 	}
+
+
 
 }
